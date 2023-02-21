@@ -1,12 +1,17 @@
 #include "main.h"
 
 /**
- * _isdigit - checks for a digit (0 through 9
+ * print_alphabet - function to print abc
  *
- * @c: int to be checked
- * Return: 1 if c is a digit, 0 otherwise
+ * return: 0
  */
-int _isdigit(int c)
+void print_alphabet(void)
 {
-	return (c >= '0' && c <= '9');
+	char c;
+
+	for (c = 'a'; c <= 'z'; c++)
+	{
+		_putchar(c);
+	}
+_putchar('\n');
 }
