@@ -9,10 +9,11 @@ then return result into the screen
 int sum_them_all(const unsigned int n, ...)
 {
 	int sum;
-	va_list x;
 	unsigned int i;
+	va_list x;
 
 	va_start (x,n);
+
 	if (n == 0 )
 		return (0);
 
