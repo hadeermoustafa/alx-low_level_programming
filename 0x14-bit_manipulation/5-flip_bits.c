@@ -15,11 +15,11 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 
 	while (bit_diff != 0)
 	{
-		if ((bit_diff & 1) == 1) /* check if the rightmost bit is 1 */
+		if ((bit_diff & 1) == 1)
 			count++;
 
-		bit_diff = bit_diff >> 1; /* shift right to check the next bit */
-    }
+		bit_diff = bit_diff >> 1;
+	}
 
 	return (count);
 }
