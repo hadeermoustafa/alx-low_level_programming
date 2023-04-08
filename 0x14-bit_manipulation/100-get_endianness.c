@@ -1,5 +1,10 @@
 #include "main.h"
 
+/**
+ * Write a function that checks the endianness.
+ *Returns: 0 if big endian, 1 if little endian
+ */
+
 int get_endianness(void)
 {
 	unsigned int num = 1;
@@ -7,12 +12,10 @@ int get_endianness(void)
 
 	if (*endian == 1)
 	{
-		// Little endian
 		return (1);
 	}
 	else
 	{
-		// Big endian
 		return (0);
 	}
 }
