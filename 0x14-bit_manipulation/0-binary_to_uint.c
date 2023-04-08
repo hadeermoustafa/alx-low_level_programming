@@ -13,13 +13,12 @@ unsigned int binary_to_uint(const char *b) {
     }
 
     // Loop through each character in the string
-    for (; *b != '\0'; ++b) {
-        if (*b != '0' && *b != '1') {
+    for (int i = 0; b[i] != '\0'; i++) {
+        if (b[i] == '0' || b[i] == '1') {
+            result = result * 2 + (b[i] - '0');
+        } else {
             return 0;
         }
-        // Shift the current result to the left by one bit and add the current bit
-        result = (result << 1) + (*b - '0');
     }
-
     return result;
 }
