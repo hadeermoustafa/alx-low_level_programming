@@ -27,15 +27,10 @@ int create_file(const char *filename, char *text_content)
 	{
 		text_length = strlen(text_content);
 		bytes_written = write(file, text_content, text_length);
-		close(file);
-
 		if (bytes_written != text_length)
 			return (-1);
 	}
-	else
-	{
-		close(file);
-	}
 
+close(file);
 return (1);
 }
