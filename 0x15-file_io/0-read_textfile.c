@@ -16,6 +16,7 @@
  * printed. If the file cannot be opened or read, or if the write operation
  * fails, the function returns 0. If filename is NULL, the function also returns 0.
  */
+
 ssize_t read_textfile(const char *filename, size_t letters)
 {
 	if (filename == NULL)
