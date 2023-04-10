@@ -17,15 +17,11 @@ int create_file(const char *filename, char *text_content)
 	int bytes_written;
 
 	if (filename == NULL)
-	{
 		return (-1);
-	}
 
 	file = open(filename, O_CREAT | O_WRONLY | O_TRUNC, S_IRUSR | S_IWUSR);
 	if (file < 0)
-	{
 		return (-1);
-	}
 
 	if (text_content != NULL)
 	{
@@ -34,14 +30,12 @@ int create_file(const char *filename, char *text_content)
 		close(file);
 
 		if (bytes_written != text_length)
-		{
 			return (-1);
-		}
 	}
 	else
 	{
 		close(file);
 	}
 
-	return (1);
+return (1);
 }
