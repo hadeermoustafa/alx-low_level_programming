@@ -9,14 +9,19 @@
  * success and -1 on failure, which includes cases where the file cannot be
  * created, written, or if the write operation fails.
  */
+
 int create_file(const char *filename, char *text_content)
 {
+	int file;
+	int text_length;
+	int bytes_written;
+
 	if (filename == NULL)
 	{
 		return (-1);
 	}
 
-	int file = open(filename, O_CREAT | O_WRONLY | O_TRUNC, S_IRUSR | S_IWUSR);
+	file = open(filename, O_CREAT | O_WRONLY | O_TRUNC, S_IRUSR | S_IWUSR);
 	if (file == -1)
 	{
 		return (-1);
@@ -24,8 +29,8 @@ int create_file(const char *filename, char *text_content)
 
 	if (text_content != NULL)
 	{
-		ssize_t text_length = strlen(text_content);
-		ssize_t bytes_written = write(file, text_content, text_length);
+		text_length = strlen(text_content);
+		bytes_written = write(file, text_content, text_length);
 		close(file);
 
 		if (bytes_written != text_length)
