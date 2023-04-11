@@ -1,43 +1,37 @@
 #include "main.h"
 
 /**
- * This function takes a filename and a text content string as input.
- * 
- * if filename is NULL return -1
- *if text_content is NULL create an empty file
+ * create_file - This function creates a file with the given name and writes the
+ * text content to it using system calls.
+ *
+ * @filename: The name of the file to be created
+ * @text_content: The text content to be written to the file
+ *
+ * Return: 1 on success, -1 on failure
  */
-
 int create_file(const char *filename, char *text_content)
 {
-	int file;
-	int text_length;
-	int bytes_written;
+	int text_length1 = 0;
+	int text_length2;
+	int file_descriptor;
 
-	if (filename == NULL)
+	if (!filename)
 		return (-1);
 
-	file = open(filename, O_CREAT | O_WRONLY | O_TRUNC, S_IRUSR | S_IWUSR);
-	if (file < 0)
+	file_descriptor = open(filename, O_CREAT | O_RDWR | O_TRUNC, 0600);
+	if (file_descriptor < 0)
 		return (-1);
 
 	if (text_content)
 	{
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> ae8802d30f627f29893b0f7ba567f0630b0a083a
-		while (text_content[text_length])
-			text_length++;
+		while (text_content[text_length1])
+			text_length1++;
 
-		bytes_written = write(fl, text_content, text_length);
-=======
-		text_length = strlen(text_content);
-		bytes_written = write(file, text_content, text_length);
->>>>>>> parent of b6afad3... debug
-		if (bytes_written != text_length)
+		text_length2 = write(file_descriptor, text_content, text_length1);
+		if (text_length2 != text_length1)
 			return (-1);
 	}
 
-	close(file);
+	close(file_descriptor);
 	return (1);
 }
