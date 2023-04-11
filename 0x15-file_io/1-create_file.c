@@ -2,12 +2,9 @@
 
 /**
  * This function takes a filename and a text content string as input.
- * It creates a file with the given name using the open system call, with the
- * permissions rw-------. If the file already exists, its contents are truncated.
- * The text content is then written to the file using the write system call. If
- * text_content is NULL, an empty file is created. The function returns 1 on
- * success and -1 on failure, which includes cases where the file cannot be
- * created, written, or if the write operation fails.
+ * 
+ * if filename is NULL return -1
+ *if text_content is NULL create an empty file
  */
 
 int create_file(const char *filename, char *text_content)
@@ -31,6 +28,6 @@ int create_file(const char *filename, char *text_content)
 			return (-1);
 	}
 
-close(file);
-return (1);
+	close(file);
+	return (1);
 }
